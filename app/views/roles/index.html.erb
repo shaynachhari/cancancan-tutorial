@@ -1,0 +1,92 @@
+<style>
+  .roles-container {
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  #roles-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+  }
+
+  #roles-table th, #roles-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  #roles-table th {
+    background-color: #f5f5f5;
+  }
+
+  .role-detail {
+    padding: 15px;
+    margin: 0;
+  }
+
+  .role-detail strong {
+    display: inline-block;
+    width: 100px;
+  }
+
+  .roles-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .roles-container tr:hover {
+    background-color: #e0f7fa;
+  }
+
+  #roles-table a {
+    text-decoration: none;
+    color: #2196F3;
+  }
+
+  #roles-table a:hover {
+    text-decoration: underline;
+  }
+
+  #roles-table .actions {
+    width: 180px;
+  }
+</style>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Roles</h1>
+
+<table id="roles-table" class="roles-container">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th class="actions">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @roles.each do |role| %>
+      <tr>
+        <td><%= role.name %></td>
+        <td><%= role.description %></td>
+        <td>
+          <%= link_to "Show", role %>
+        </td>
+      </tr>
+      <tr id="<%= dom_id role %>" class="role-detail">
+        <td colspan="3">
+          <p>
+            <strong>Name:</strong> <%= role.name %>
+          </p>
+          <p>
+            <strong>Description:</strong> <%= role.description %>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New role", new_role_path %>

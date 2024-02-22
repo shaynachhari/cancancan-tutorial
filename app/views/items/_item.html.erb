@@ -1,0 +1,35 @@
+<div id="<%= dom_id item %>" class="item-container">
+  <p class="item-detail">
+    <strong>Name:</strong>
+    <%= item.name %>
+  </p>
+
+  <p class="item-detail">
+    <strong>Description:</strong>
+    <%= item.description %>
+  </p>
+
+  <p class="item-detail">
+    <strong>Price:</strong>
+    <%= item.price %>
+  </p>
+
+  <p class="item-detail">
+    <strong>User:</strong>
+    <%= item.user.name %>
+  </p>
+</div>
+<style>
+.item-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.item-detail {
+  margin-bottom: 8px;
+}
+
+/* Add more styles as needed */
+
+</style>

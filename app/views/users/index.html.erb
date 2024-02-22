@@ -1,0 +1,55 @@
+<style>
+  .user-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .user-detail {
+    margin-bottom: 8px;
+  }
+
+  #users-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #users-table th, #users-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  #users-table th {
+    background-color: #f2f2f2;
+  }
+</style>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table id="users-table">
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Email</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.role.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <%= link_to 'Show', user %>
+          | <%= link_to 'Edit', edit_user_path(user) %>
+          | <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New user", new_user_path %>
